@@ -2,6 +2,8 @@ import * as service from "../../services/auth-service"
 import {Link, Route, Routes, useLocation, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import MyTuits from "./my-tuits";
+import MyLikes from "./my-likes";
+//import MyDislikes from "./my-dislikes";
 
 const Profile = () => {
   const location = useLocation()
@@ -79,11 +81,23 @@ const Profile = () => {
                       className={`nav-link ${location.pathname.indexOf('media') >= 0 ? 'active': ''}`}>
                   Media</Link>
               </li>
+              <li className="nav-item">
+                <Link to="/profile/mylikes"
+                      className={`nav-link ${location.pathname.indexOf('mylikes') >= 0 ? 'active': ''}`}>
+                  Likes</Link>
+              </li>
+              {/*<li className="nav-item">*/}
+              {/*  <Link to="/profile/mydislikes"*/}
+              {/*        className={`nav-link ${location.pathname.indexOf('mydislikes') >= 0 ? 'active': ''}`}>*/}
+              {/*    Dislikes</Link>*/}
+              {/*</li>*/}
             </ul>
           </div>
         </div>
         <Routes>
           <Route path="/mytuits" element={<MyTuits/>}/>
+          <Route path="/mylikes" element={<MyLikes/>}/>
+          {/*<Route path="/mydislikes" element={<MyDislikes/>}/>*/}
         </Routes>
       </div>
   );
